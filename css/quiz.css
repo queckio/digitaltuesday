@@ -1,0 +1,96 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #424242;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#navContentIntro{
+margin:auto;	
+width:800px;
+height:200px;
+position:relative;
+overflow:scroll;
+color: #FFF;
+}
+
+#navContent{
+margin:auto;	
+width:800px;
+height:400px;
+position:relative;
+overflow:hidden;
+color: #FFF;
+}
+
+#game1{
+margin:auto;
+width:800px;
+height:400px;
+right:0px;
+}
+
+#game2{
+margin:auto;	
+width:800px;
+height:400px;
+right:-800px;
+}
+
+.form-sub {
+    padding-top: 12px;
+} 
+ 
+.questionText{
+font-size:27px;
+color: black;
+}
+
+.option{width:400px;
+height:30px;
+margin:15px auto;
+font-size:18px;
+color:#FFFFFF; 
+padding:2px;
+padding-left:10px;
+border: 2px solid white;
+cursor:pointer;
+background-color:#3399FF;
+}
+
+.option:hover{
+border:#FC0 solid 2px;
+color:#FC0;
+}
+
+.feedback1{
+width:150px;
+padding:5px;
+font-size:30px;
+color:#FFFFCC;
+background-color:#009900;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+}
+
+.feedback2{
+width:150px;
+padding:5px;
+font-size:30px;
+color:#FFFFCC;
+background-color:#CC3300;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+}
+ 
+@media screen and (max-width:800px) {
+	#topbar{margin-left:1%;margin-right:1%;	width:96%;}
+	#navContent{margin:1%;	width:98%;}
+	#game1{margin:1%;	width:98%;}
+	#game2{margin:1%;	width:98%;}
+
+}
+
+@media screen and (max-width:460px) {
+	.option{width:80%;margin:5%;}
+}
