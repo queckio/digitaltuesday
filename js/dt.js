@@ -10,28 +10,44 @@ $(function() {
   var $questionText = $('#questionText');
   var $resultText = $('#resultText');  
   var questionOrder;
-  var quiz = load();
+  var quiz = loadQuiz();
+  var yesNo = loadYesNo();
+  yesNo.positive = 0;
+  yesNo.negative = 0;
   
   // use an eventlistener for the event
   $('#submitNamePQ').on('click', getUserNamePQ);
   $('#quizStart').hide();
   
-  $('#posVote, #negVote').on('click', function() {
+  $('#posVote').on('click', function() {
+    yesNo.positive++;
+    saveYesNo(yesNo);
     alert("Your vote has been counted!");
     location.replace('index.html');
   });
 
-  $('#submitQA').on('click', function() {
+  $('#negVote').on('click', function() {
+    yesNo.negative++;
+    saveYesNo(yesNo);
+    alert("Your vote has been counted!");
+    location.replace('index.html');
+  });
+
+  $('#submitQA').on('click', function(e) {
+    e.preventDefault();
+    var qa = loadQA();
+    qa.nameQA = $('#nameQA').val();
+    qa.questionQA = $('#questionQA').val();
+    saveQA(qa);
     alert("Your question has been submitted!");
     $('#nameQA').val('');
     $('#questionQA').val('');
-    location.replace('index.html');
   });
 
   $('#startPQ').on('click', function() {
     quiz.StartTime = new Date().getTime();
     quiz.score = 0;
-    save(quiz);
+    saveQuiz(quiz);
     location.replace('dt-pubquiz.html');
   });
 
@@ -47,15 +63,31 @@ $(function() {
       $(this).parents('section').eq(0).next('section').show(1500);
       $('#namePQ').val('');
     }
-    save(quiz);
+    saveQuiz(quiz);
   }
 
-  function save(quiz) {
+  function saveQuiz(quiz) {
     localStorage.quiz = JSON.stringify(quiz);
   }
 
-  function load() {
+  function loadQuiz() {
     return (localStorage.quiz && JSON.parse(localStorage.quiz)) || {};
+  }
+
+  function saveYesNo(yesNo) {
+    localStorage.yesNo = JSON.stringify(yesNo);
+  }
+
+  function loadYesNo() {
+    return (localStorage.yesNo && JSON.parse(localStorage.yesNo)) || {};
+  }
+
+  function saveQA(qa) {
+    localStorage.qa = JSON.stringify(qa);
+  }
+
+  function loadQA() {
+    return (localStorage.qa && JSON.parse(localStorage.qa)) || {};
   }
 
   $.getJSON('https://dl.dropboxusercontent.com/u/1163819/pqQuestions.json', function(data) {
@@ -113,7 +145,7 @@ $(function() {
       } else {
         displayQuestion();
       }
-    save (quiz);
+    saveQuiz (quiz);
     }
   }
 
