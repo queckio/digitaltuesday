@@ -29,7 +29,7 @@ $(function() {
   });
 
   $('#startPQ').on('click', function() {
-    quiz.EndTime = new Date().getTime();
+    quiz.StartTime = new Date().getTime();
     quiz.score = 0;
     save(quiz);
     location.replace('dt-pubquiz.html');
