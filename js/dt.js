@@ -31,7 +31,7 @@ $(function() {
   $('#startPQ').on('click', function() {
     quiz.EndTime = new Date().getTime();
     quiz.score = 0;
-    $('#questionQA').val('');
+    save(quiz);
     location.replace('dt-pubquiz.html');
   });
 
