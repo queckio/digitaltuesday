@@ -22,6 +22,12 @@ $(function() {
   $('#posVote').on('click', function() {
     yesNo.positive++;
     saveYesNo(yesNo);
+    $.ajax({
+      type: 'Post',
+      url: '/api/test.php',
+      data: yesNo,
+      dataType: 'json'
+    }); 
     alert("Your vote has been counted!");
     location.replace('index.html');
   });
