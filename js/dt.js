@@ -28,8 +28,8 @@ $(function() {
       data: yesNo,
       dataType: 'json'
     }); 
-    alert("Your vote has been counted!");
-    location.replace('index.html');
+    /* alert("Your vote has been counted!");
+    location.replace('index.html'); */
   });
 
   $('#negVote').on('click', function() {
