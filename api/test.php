@@ -2,7 +2,7 @@
     require 'connection.php';
         $conn    = Connect();
         $yesNo    = json_decode($_POST['yesNo']);
-        $query   = "INSERT into startSession (yesNo.posVote, yesNo.negVote) VALUES('$posVote','$negVote'')";
+        $query   = "INSERT into startsession (yesNo.posVote, yesNo.negVote) VALUES('$posVote','$negVote'')";
         $success = $conn->query($query);
 
     if (!$success) {
