@@ -14,28 +14,29 @@ $(function() {
   var yesNo = loadYesNo();
   yesNo.positive = 0;
   yesNo.negative = 0;
+  var time = new Date().toLocaleString();
   
   // use an eventlistener for the event
   $('#submitNamePQ').on('click', getUserNamePQ);
   $('#quizStart').hide();
-  
+
   $('#posVote').on('click', function() {
     yesNo.positive++;
     saveYesNo(yesNo);
-    $.ajax({
-      type: 'Post',
-      url: '/api/test.php',
-      data: yesNo,
-      dataType: 'json'
-    }); 
-    /* alert("Your vote has been counted!");
-    location.replace('index.html'); */
-  });
+    $.post('/api/startsession.php', {posVote: yesNo.positive, negVote: yesNo.negative},
+      function(data) {
+        alert(data);
+      });
+    location.replace('index.html');
+  }); 
 
   $('#negVote').on('click', function() {
     yesNo.negative++;
     saveYesNo(yesNo);
-    alert("Your vote has been counted!");
+    $.post('/api/startsession.php', {posVote: yesNo.positive, negVote: yesNo.negative},
+      function(data) {
+        alert(data);
+      });
     location.replace('index.html');
   });
 
@@ -45,9 +46,12 @@ $(function() {
     qa.nameQA = $('#nameQA').val();
     qa.questionQA = $('#questionQA').val();
     saveQA(qa);
-    alert("Your question has been submitted!");
-    $('#nameQA').val('');
-    $('#questionQA').val('');
+    $.post('/api/questions.php', {nameQA: qa.nameQA, questionQA: qa.questionQA},
+      function(data) {
+        alert(data);
+      });
+    /* $('#nameQA').val('');
+    $('#questionQA').val(''); */
   });
 
   $('#startPQ').on('click', function() {
