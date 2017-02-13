@@ -50,8 +50,8 @@ $(function() {
       function(data) {
         alert(data);
       });
-    /* $('#nameQA').val('');
-    $('#questionQA').val(''); */
+    /* $('#nameQA').val(''); */
+    $('#questionQA').val('');
   });
 
   $('#startPQ').on('click', function() {
@@ -166,6 +166,10 @@ $(function() {
     $questionHeader.text('Dein Ergebnis ' + quiz.namePQ + ':');
     $questionText.text('Deine Zeit: ' + quiz.quizTime + ' s');
     $resultText.text('Richtige Antworten: ' + quiz.score);
+    $.post('/api/pubquiz.php', {namePQ: quiz.namePQ, timePQ: quiz.quizTime, scorePQ: quiz.score},
+      function(data) {
+        alert(data);
+      });
   }
 
 });

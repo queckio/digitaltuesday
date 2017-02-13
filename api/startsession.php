@@ -1,8 +1,8 @@
 <?php
     require 'connection.php';
         $conn = Connect();
-        $posVote = ($_POST['posVote']);
-        $negVote = ($_POST['negVote']);
+        $posVote = intval($_POST['posVote']);
+        $negVote = intval($_POST['negVote']);
 
         $query   = "INSERT INTO startsession (posVote, negVote) VALUES ($posVote, $negVote)";
 

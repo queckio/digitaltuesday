@@ -1,10 +1,10 @@
 <?php
     require 'connection.php';
         $conn = Connect();
-        $nameQA = ($_POST['nameQA']);
-        $questionQA = ($_POST['questionQA']);
+        $nameQA = mysqli_real_escape_string($conn, $_POST['nameQA']);
+        $questionQA = mysqli_real_escape_string($conn, $_POST['questionQA']);
 
-        $query   = "INSERT INTO questions (nameQA, questionQA) VALUES ($nameQA, $questionQA)";
+        $query   = "INSERT INTO questions (nameQA, questionQA) VALUES ('$nameQA', '$questionQA')";
 
         $success = $conn->query($query);
 

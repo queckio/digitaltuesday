@@ -1831,6 +1831,9 @@ a.btn-more:hover:after {
 .padd-tb-150 {
   padding: 150px 0;
 }
+.padd-tb-180 {
+  padding: 180px 0;
+}
 .padd-lr-10 {
   padding: 0 10px;
 }
