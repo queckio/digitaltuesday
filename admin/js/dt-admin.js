@@ -6,20 +6,18 @@ $(function() {
   $('#resultPQ').hide();
 
   $('#getQuestions').on('click', function() {
-    var questions = {};
     $('#resultYesNo').hide();
     $('#resultPQ').hide();
     $.get('/api/query_questions.php', function(dataQuestions) {
-      questions = JSON.parse(dataQuestions);
-      var temp = Object.values(questions[0]);
-      console.log(temp);
+      var questions = JSON.parse(dataQuestions);
+      console.log(questions);
       $('#questionsTable').DataTable( {
-        data: temp,
         columns: [
-            { title: "ID" },
-            { title: "Name" },
-            { title: "Question" }
-        ]
+          {"data": "id"},
+          {"data": "nameQA"},
+          {"data": "questionQA"},
+        ],
+        data: questions
       });
     });
     $('#resultSeparator').show(1500);
@@ -31,11 +29,11 @@ $(function() {
     $('#resultPQ').hide();
     $.get('/api/query_startsession.php', function(dataStart) {
       var votes = JSON.parse(dataStart);
-      posVotes = parseInt(votes["0"]["SUM(posVote)"]);
-      negVotes = parseInt(votes["0"]["SUM(negVote)"]);
-      totalVotes = posVotes + negVotes;
-      posPercentage = Math.round((posVotes / totalVotes)*100);
-      negPercentage = Math.round((negVotes / totalVotes)*100);
+      var posVotes = parseInt(votes["0"]["SUM(posVote)"]);
+      var negVotes = parseInt(votes["0"]["SUM(negVote)"]);
+      var totalVotes = posVotes + negVotes;
+      var posPercentage = Math.round((posVotes / totalVotes)*100);
+      var negPercentage = Math.round((negVotes / totalVotes)*100);
       $('#resultYes').text(posPercentage + '%');
       $('#resultNo').text(negPercentage + '%');
       $('#resultYesNoText').text('Anzahl Stimmen: ' + totalVotes);
@@ -47,6 +45,18 @@ $(function() {
   $('#getResultPQ').on('click', function() {
     $('#resultQuestions').hide();
     $('#resultYesNo').hide();
+    $.get('/api/query_pubquiz.php', function(dataPQ) {
+      var scorePQ = JSON.parse(dataPQ);
+      $('#pqTable').DataTable( {
+        columns: [
+          {"data": "id"},
+          {"data": "namePQ"},
+          {"data": "scorePQ"},
+          {"data": "timePQ"},
+        ],
+        data: scorePQ
+      });
+    });
     $('#resultSeparator').show(1500);
     $('#resultPQ').show(1500);
   });

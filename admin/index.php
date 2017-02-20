@@ -177,10 +177,23 @@ if(!isset($_SESSION['UserData']['username'])){
 			</section>
 
 			<section id="resultQuestions" class="padd-b-120 padd-lr-60">
-				<table id="questionsTable"> 
+				<table id="questionsTable" class"display">
+					<thead>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Question</th>						 
 				</table>
 			</section>
 
+			<section id="resultPQ" class="padd-b-120 padd-lr-60">
+				<table id="pqTable" class"display">
+					<thead>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Time</th>						 
+						<th>Score</th>						 
+				</table>
+			</section>
 
 			<!-- footer-sub -->
 			<div class="footer-sub bg-light-dark padd-tb-10">
