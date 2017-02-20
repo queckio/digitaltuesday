@@ -9,21 +9,21 @@ $(function() {
     var questions = {};
     $('#resultYesNo').hide();
     $('#resultPQ').hide();
-    $('#resultSeparator').show(1500);
-    $('#resultQuestions').show(1500);
     $.get('/api/query_questions.php', function(dataQuestions) {
       questions = JSON.parse(dataQuestions);
-      console.log(questions);
-      $('#qestionsTable').DataTable({
-        data: questions,
+      var temp = Object.values(questions[0]);
+      console.log(temp);
+      $('#questionsTable').DataTable( {
+        data: temp,
         columns: [
-          {data: 'id' },
-          {data: 'nameQA' },
-          {data: 'questionQA' }
+            { title: "ID" },
+            { title: "Name" },
+            { title: "Question" }
         ]
       });
-      console.log(questions);
     });
+    $('#resultSeparator').show(1500);
+    $('#resultQuestions').show(1500);
   });
 
   $('#getResultYesNo').on('click', function() {

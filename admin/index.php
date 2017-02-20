@@ -62,6 +62,7 @@ if(!isset($_SESSION['UserData']['username'])){
 		<link href="/switcher/switcher.css" rel="stylesheet">
 		
 		<link rel="stylesheet" type="text/css" href="/css/colors/blue.css" id="colors">
+		<!-- <link rel="stylesheet" type="text/css" href="/plugins/dynatable/jquery.dynatable.css"> -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.10.13/fc-3.2.2/fh-3.1.2/datatables.min.css"/>
   
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -159,7 +160,7 @@ if(!isset($_SESSION['UserData']['username'])){
 							<div class="feature-box4 padd-10 text-center">
 								<p class="btn btn-green btn-lg">
 									<i class="fa fa-thumbs-up" style="color: #fff"></i>
-									<h1 id="resultYes" class="text-center">Lalala</h1>
+									<h1 id="resultYes" class="text-center"></h1>
 								</p>
 							</div>
 						</div>
@@ -167,7 +168,7 @@ if(!isset($_SESSION['UserData']['username'])){
 							<div class="feature-box4 padd-10 text-center">
 								<p class="btn btn-red btn-lg">
 									<i class="fa fa-thumbs-down" style="color: #fff"></i>
-									<h1 id="resultNo" class="text-center">Lalala</h1>
+									<h1 id="resultNo" class="text-center"></h1>
 								</p>
 							</div>
 						</div>
@@ -176,7 +177,7 @@ if(!isset($_SESSION['UserData']['username'])){
 			</section>
 
 			<section id="resultQuestions" class="padd-b-120 padd-lr-60">
-				<table id="questionsTable" class="display">  
+				<table id="questionsTable"> 
 				</table>
 			</section>
 
@@ -210,7 +211,8 @@ if(!isset($_SESSION['UserData']['username'])){
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>	
 		<script src="/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.10.13/fc-3.2.2/fh-3.1.2/datatables.min.js"></script>
-		
+		<!-- <script type="text/javascript" src="/plugins/dynatable/jquery.dynatable.js"></script> -->
+
 		<!-- morris -->	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
 		<script type="text/javascript" src="/plugins/morris/morris.min.js"></script>  
