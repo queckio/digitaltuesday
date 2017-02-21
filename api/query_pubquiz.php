@@ -1,19 +1,20 @@
 <?php
     require 'connection.php';
-        $conn = Connect();
 
-        $queryPubquiz = $conn->query("SELECT * FROM pubquiz");
-        
-        if (!$queryPubquiz) {
-            die("Error: ".$conn->error);
-        }
+    $conn = Connect();
 
-        $resPubquiz = array();
-        while($temp = mysqli_fetch_object($queryPubquiz)) {
-            $resPubquiz[] = $temp;
-        }
+    $queryPubquiz = $conn->query("SELECT * FROM pubquiz");
+    
+    if (!$queryPubquiz) {
+        die("Error: ".$conn->error);
+    }
 
-        echo json_encode($resPubquiz);
+    $resPubquiz = array();
+    while($temp = mysqli_fetch_object($queryPubquiz)) {
+        $resPubquiz[] = $temp;
+    }
+
+    echo json_encode($resPubquiz);
 
     $conn->close();
 ?>

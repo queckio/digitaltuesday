@@ -1,19 +1,20 @@
 <?php
     require 'connection.php';
-        $conn = Connect();
 
-        $queryStart = $conn->query("SELECT SUM(posVote), SUM(negVote) FROM startsession");
+    $conn = Connect();
 
-        if (!$queryStart) {
-            die("Error: ".$conn->error);
-        }
+    $queryStart = $conn->query("SELECT SUM(posVote), SUM(negVote) FROM startsession");
 
-        $resStart = array();
-        while($temp = mysqli_fetch_object($queryStart)) {
-            $resStart[] = $temp;
-        }
+    if (!$queryStart) {
+        die("Error: ".$conn->error);
+    }
 
-        echo json_encode($resStart);
+    $resStart = array();
+    while($temp = mysqli_fetch_object($queryStart)) {
+        $resStart[] = $temp;
+    }
+
+    echo json_encode($resStart);
 
     $conn->close();
 ?>

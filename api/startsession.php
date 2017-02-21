@@ -1,17 +1,20 @@
 <?php
     require 'connection.php';
-        $conn = Connect();
-        $posVote = intval($_POST['posVote']);
-        $negVote = intval($_POST['negVote']);
+    
+    $conn = Connect();
 
-        $query   = "INSERT INTO startsession (posVote, negVote) VALUES ($posVote, $negVote)";
+    $posVote = intval($_POST['posVote']);
+    $negVote = intval($_POST['negVote']);
 
-        $success = $conn->query($query);
+    $query   = "INSERT INTO startsession (posVote, negVote) VALUES ($posVote, $negVote)";
 
-        if (!$success) {
-            die("Error".$conn->error);
-        }
-            echo "Your vote has been counted!";
+    $success = $conn->query($query);
+
+    if (!$success) {
+        die("Error".$conn->error);
+    }
+    
+    echo "Your vote has been counted!";
 
     $conn->close();
 ?>

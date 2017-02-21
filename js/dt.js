@@ -14,7 +14,6 @@ $(function() {
   var yesNo = loadYesNo();
   yesNo.positive = 0;
   yesNo.negative = 0;
-  var time = new Date().toLocaleString();
   
   // use an eventlistener for the event
   $('#submitNamePQ').on('click', getUserNamePQ);
