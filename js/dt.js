@@ -100,7 +100,7 @@ $(function() {
     return (localStorage.qa && JSON.parse(localStorage.qa)) || {};
   }
 
-  $.getJSON('/quiz/pqQuestions.json', function(data) {
+  $.getJSON('https://dl.dropboxusercontent.com/u/1163819/pqQuestions.json', function(data) {
 
     for (i = 0; i < data.quizlist.length; i++) { 
         questionBank[i] = [];
