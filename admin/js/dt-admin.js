@@ -10,14 +10,14 @@ $(function() {
     $('#resultPQ').hide();
     $.get('/api/query_questions.php', function(dataQuestions) {
       var questions = JSON.parse(dataQuestions);
-      console.log(questions);
       $('#questionsTable').DataTable( {
+        data: questions,
         columns: [
           {"data": "id"},
           {"data": "nameQA"},
           {"data": "questionQA"},
         ],
-        data: questions
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
       });
     });
     $('#resultSeparator').show(1500);
@@ -48,13 +48,14 @@ $(function() {
     $.get('/api/query_pubquiz.php', function(dataPQ) {
       var scorePQ = JSON.parse(dataPQ);
       $('#pqTable').DataTable( {
+        data: scorePQ,
         columns: [
           {"data": "id"},
           {"data": "namePQ"},
           {"data": "scorePQ"},
           {"data": "timePQ"},
         ],
-        data: scorePQ
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
       });
     });
     $('#resultSeparator').show(1500);

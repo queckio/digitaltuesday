@@ -4,12 +4,13 @@
 
         $queryStart = $conn->query("SELECT SUM(posVote), SUM(negVote) FROM startsession");
 
-        if (!$resStart) {
+        if (!$queryStart) {
             die("Error: ".$conn->error);
         }
 
         $resStart = array();
-        while($resStart[] = mysqli_fetch_object($queryStart)) {
+        while($temp = mysqli_fetch_object($queryStart)) {
+            $resStart[] = $temp;
         }
 
         echo json_encode($resStart);
