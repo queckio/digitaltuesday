@@ -54,7 +54,7 @@ $(function() {
   });
 
   $('#startPQ').on('click', function() {
-    quiz.StartTime = new Date().getTime();
+    quiz.StartTime = Date.now();
     quiz.score = 0;
     saveQuiz(quiz);
     location.replace('dt-pubquiz.html');
@@ -149,7 +149,7 @@ $(function() {
       questionNumber++;
 
       if (questionNumber === numberOfQuestions) {
-        quiz.EndTime = new Date().getTime();
+        quiz.EndTime = Date.now();
         quiz.quizTime = (quiz.EndTime - quiz.StartTime) / 1000;
         displaySummary();
       } else {
