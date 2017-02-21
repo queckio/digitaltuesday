@@ -1873,6 +1873,12 @@ a.btn-more:hover:after {
 .padd-t-90 {
   padding-top: 90px;
 }
+.padd-t-120 {
+  padding-top: 120px;
+}
+.padd-t-150 {
+  padding-top: 150px;
+}
 .padd-b-10 {
   padding-bottom: 10px;
 }
@@ -1891,8 +1897,14 @@ a.btn-more:hover:after {
 .padd-b-60 {
   padding-bottom: 60px;
 }
+.padd-b-90 {
+  padding-bottom: 90px;
+}
 .padd-b-120 {
   padding-bottom: 120px;
+}
+.padd-b-150 {
+  padding-bottom: 150px;
 }
 @media (max-width: 552px) {
   .padd-90 {

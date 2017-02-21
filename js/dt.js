@@ -16,8 +16,8 @@ $(function() {
   yesNo.negative = 0;
   
   // use an eventlistener for the event
-  $('#submitNamePQ').on('click', getUserNamePQ);
   $('#quizStart').hide();
+  $('#submitNamePQ').on('click', getUserNamePQ);
 
   $('#posVote').on('click', function() {
     yesNo.positive++;
@@ -69,6 +69,7 @@ $(function() {
       $nameCheck.text('Name must contain at least 5 characters');
     } else {
       $nameCheck.text('Your name is: ' + quiz.namePQ);
+      $('#namePQForm').hide();
       $(this).parents('section').eq(0).next('section').show(1500);
       $('#namePQ').val('');
     }
