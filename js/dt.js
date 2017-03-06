@@ -42,15 +42,20 @@ $(function() {
   $('#submitQA').on('click', function(e) {
     e.preventDefault();
     var qa = loadQA();
-    qa.nameQA = $('#nameQA').val();
-    qa.questionQA = $('#questionQA').val();
-    saveQA(qa);
-    $.post('/api/questions.php', {nameQA: qa.nameQA, questionQA: qa.questionQA},
-      function(data) {
-        alert(data);
-      });
-    /* $('#nameQA').val(''); */
-    $('#questionQA').val('');
+    if ($('#questionQA').val() == "") {
+      alert("Please enter a question!");
+      return(false);
+    }
+    else {
+      qa.nameQA = $('#nameQA').val();
+      qa.questionQA = $('#questionQA').val();
+      saveQA(qa);
+      $.post('/api/questions.php', {nameQA: qa.nameQA, questionQA: qa.questionQA},
+        function(data) {
+          alert(data);
+        });
+      $('#questionQA').val('');
+    };
   });
 
   $('#startPQ').on('click', function() {
