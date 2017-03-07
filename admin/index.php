@@ -123,28 +123,32 @@
 						
 					</div>
 					<div class="row wow fadeInUp">
-						<div class="col-md-4 col-sm-4">
+						<div class="col-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-speedometer"></i>
 								<h4>1. Yes or No?</h4>	
 								<button id="getResultYesNo" class="btn btn-blue btn-sm" type="button"><b>Get result</b></button>
-
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-4">
+						<div class="ccol-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-bubbles"></i>
 								<h4>2. Questions</h4>	
 								<button id="getQuestions" class="btn btn-blue btn-sm" type="button"><b>Get questions</b></button>
-
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-4">
+						<div class="ccol-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-trophy"></i>
 								<h4>3. Pub Quiz</h4>	
 								<button id="getResultPQ" class="btn btn-blue btn-sm" type="button"><b>Get result</b></button>
-
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3">
+							<div class="feature-box4 padd-10 text-center">
+								<i class="icon icon-compass"></i>
+								<h4>4. Feedback</h4>	
+								<button id="getResultFeedback" class="btn btn-blue btn-sm" type="button"><b>Get feedback</b></button>
 							</div>
 						</div>
 					</div>
@@ -170,6 +174,30 @@
 								<p class="btn btn-red btn-lg">
 									<i class="fa fa-thumbs-down" style="color: #fff"></i>
 									<h1 id="resultNo" class="text-center"></h1>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="resultFeedback" class="padd-b-120">
+				<div class="container">
+					<div id="feedback" class="row wow fadeInUp">
+						<h1 id="resultFeedbackText" class="text-center"></h1>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div class="feature-box4 padd-10 text-center">
+								<p class="btn btn-green btn-lg">
+									<i class="fa fa-thumbs-up" style="color: #fff"></i>
+									<h1 id="resultGood" class="text-center"></h1>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div class="feature-box4 padd-10 text-center">
+								<p class="btn btn-red btn-lg">
+									<i class="fa fa-thumbs-down" style="color: #fff"></i>
+									<h1 id="resultBad" class="text-center"></h1>
 								</p>
 							</div>
 						</div>

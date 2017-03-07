@@ -14,6 +14,9 @@ $(function() {
   var yesNo = loadYesNo();
   yesNo.positive = 0;
   yesNo.negative = 0;
+  var feedback = loadFeedback();
+  feedback.positive = 0;
+  feedback.negative = 0;
   
   // use an eventlistener for the event
   $('#quizStart').hide();
@@ -33,6 +36,26 @@ $(function() {
     yesNo.negative++;
     saveYesNo(yesNo);
     $.post('/api/startsession.php', {posVote: yesNo.positive, negVote: yesNo.negative},
+      function(data) {
+        alert(data);
+      });
+    location.replace('index.html');
+  });
+
+  $('#goodVote').on('click', function() {
+    feedback.positive++;
+    saveFeedback(feedback);
+    $.post('/api/feedback.php', {goodVote: feedback.positive, badVote: feedback.negative},
+      function(data) {
+        alert(data);
+      });
+    location.replace('index.html');
+  }); 
+
+  $('#badVote').on('click', function() {
+    feedback.negative++;
+    saveFeedback(feedback);
+    $.post('/api/feedback.php', {goodVote: feedback.positive, badVote: feedback.negative},
       function(data) {
         alert(data);
       });
@@ -95,6 +118,14 @@ $(function() {
 
   function loadYesNo() {
     return (localStorage.yesNo && JSON.parse(localStorage.yesNo)) || {};
+  }
+
+  function saveFeedback(feedback) {
+    localStorage.feedback = JSON.stringify(feedback);
+  }
+
+  function loadFeedback() {
+    return (localStorage.feedback && JSON.parse(localStorage.feedback)) || {};
   }
 
   function saveQA(qa) {

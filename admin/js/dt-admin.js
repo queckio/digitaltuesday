@@ -4,10 +4,12 @@ $(function() {
   $('#resultYesNo').hide();
   $('#resultQuestions').hide();
   $('#resultPQ').hide();
+  $('#resultFeedback').hide();
 
   $('#getQuestions').on('click', function() {
     $('#resultYesNo').hide();
     $('#resultPQ').hide();
+    $('#resultFeedback').hide();
     $.get('/api/query_questions.php', function(dataQuestions) {
       var questions = JSON.parse(dataQuestions);
       $('#questionsTable').DataTable( {
@@ -27,6 +29,7 @@ $(function() {
   $('#getResultYesNo').on('click', function() {
     $('#resultQuestions').hide();
     $('#resultPQ').hide();
+    $('#resultFeedback').hide();
     $.get('/api/query_startsession.php', function(dataStart) {
       var votes = JSON.parse(dataStart);
       var posVotes = parseInt(votes["0"]["SUM(posVote)"]);
@@ -42,9 +45,29 @@ $(function() {
     $('#resultYesNo').show(1500);
   });
 
+  $('#getResultFeedback').on('click', function() {
+    $('#resultQuestions').hide();
+    $('#resultPQ').hide();
+    $('#resultYesNo').hide();
+    $.get('/api/query_feedback.php', function(dataFeedback) {
+      var feedback = JSON.parse(dataFeedback);
+      var goodVotes = parseInt(feedback["0"]["SUM(goodVote)"]);
+      var badVotes = parseInt(feedback["0"]["SUM(badVote)"]);
+      var totalFeedback = goodVotes + badVotes;
+      var goodPercentage = Math.round((goodVotes / totalFeedback)*100);
+      var badPercentage = Math.round((badVotes / totalFeedback)*100);
+      $('#resultGood').text(goodPercentage + '%');
+      $('#resultBad').text(badPercentage + '%');
+      $('#resultFeedbackText').text('Anzahl Stimmen: ' + totalFeedback);
+    });
+    $('#resultSeparator').show(1500);
+    $('#resultFeedback').show(1500);
+  });
+
   $('#getResultPQ').on('click', function() {
     $('#resultQuestions').hide();
     $('#resultYesNo').hide();
+    $('#resultFeedback').hide();
     $.get('/api/query_pubquiz.php', function(dataPQ) {
       var scorePQ = JSON.parse(dataPQ);
       $('#pqTable').DataTable( {
