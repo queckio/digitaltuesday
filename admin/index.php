@@ -126,28 +126,28 @@
 						<div class="ccol-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-bubbles"></i>
-								<h4>Questions</h4>	
+								<h4>Questions?</h4>	
 								<button id="getQuestions" class="btn btn-blue btn-sm" type="button"><b>Get questions</b></button>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-speedometer"></i>
-								<h4>Warm-up: Yes or No?</h4>	
+								<h4>Warm-up!</h4>	
 								<button id="getResultYesNo" class="btn btn-blue btn-sm" type="button"><b>Get result</b></button>
 							</div>
 						</div>
 						<div class="ccol-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-trophy"></i>
-								<h4>Magic</h4>	
+								<h4>Magic!</h4>	
 								<button id="getResultPQ" class="btn btn-blue btn-sm" type="button"><b>Get result</b></button>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="feature-box4 padd-10 text-center">
 								<i class="icon icon-compass"></i>
-								<h4>Feedback</h4>	
+								<h4>Feedback!</h4>	
 								<button id="getResultFeedback" class="btn btn-blue btn-sm" type="button"><b>Get feedback</b></button>
 							</div>
 						</div>
